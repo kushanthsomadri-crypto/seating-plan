@@ -8,6 +8,17 @@ import os
 
 st.set_page_config(page_title="Seating Plan", layout="wide")
 init_db()
+# --- AUTO IMPORT seating.csv ON STREAMLIT CLOUD ---
+import os
+import db
+
+try:
+    if os.path.exists("seating.csv"):
+        db.import_csv("seating.csv")
+except Exception as e:
+    st.warning(f"Auto-import failed: {e}")
+# --------------------------------------------------
+
 
 # PASTE your hash here from create_hash.py, e.g. ADMIN_PASSWORD_HASH = b'$2b$12$...'
 ADMIN_PASSWORD_HASH = b'$2b$12$aFWRxMrXOziK.qeWKkUB1u8RTQwc/Lqpp.n1A4b9nnTh4QFx0gP0W'
