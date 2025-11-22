@@ -1,0 +1,7 @@
+streamlit
+pandas
+SQLAlchemy
+pdfplumber
+bcrypt
+python-dotenv
+reportlab
